@@ -44,11 +44,30 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ViewHo
         }
 
         @Override
-        public void onBindViewHolder(ViewHolder viewHolder, int i) {
+        public void onBindViewHolder(ViewHolder viewHolder, int j) {
+
+
+ //           ohmsoftwaresinc.com.universalweatherapplication.Model.List data = product.getList().get(i);
+  //          Log.d("Pressure",data.getMain().getPressure().toString());
+   //         Log.d("Pressure",data.getDtTxt().toString());
+
+      //      viewHolder.countryName.setText(""+data.getDtTxt().toString());
+            for(int i=0;i< product.getList().size();i++)
+            {
+                ohmsoftwaresinc.com.universalweatherapplication.Model.List data = product.getList().get(i);
+              //  Log.d("Pressure",data.getMain().getPressure().toString());
+               // Log.d("Pressure",data.getDtTxt().toString());
+
+
+                viewHolder.countryName.setText(""+data.getDtTxt().toString());
+
+                // Toast.makeText(getApplicationContext(),data.getSys().getPod().toString(),Toast.LENGTH_SHORT);
+
+            }
 
 
 
-            viewHolder.countryName.setText(""+product.getCity().getCountry().toString());
+           // viewHolder.countryName.setText(""+product.getCity().getCountry().toString());
             // viewHolder.versionName=viewHolder.countryName.getText().toString();
 
 
