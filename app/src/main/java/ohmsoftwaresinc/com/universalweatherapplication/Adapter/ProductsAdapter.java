@@ -66,7 +66,7 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ViewHo
 
             public ViewHolder(View itemView) {
                 super(itemView);
-                countryName = (TextView) itemView.findViewById(R.id.name);
+                countryName = (TextView) itemView.findViewById(R.id.name_date);
 
 
          /*
