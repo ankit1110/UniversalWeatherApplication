@@ -2,12 +2,15 @@ package ohmsoftwaresinc.com.universalweatherapplication;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -42,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
+       // Toast.makeText(getApplicationContext(),"",Toast.LENGTH_SHORT).show();
 
     }
 
@@ -49,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void get_data(View v)
     {
+      //  Toast.makeText(getApplicationContext(),"",Toast.LENGTH_SHORT).show();
 
         RestAdapter restadapter = new RestAdapter.Builder()
                 .setEndpoint("http://api.openweathermap.org")
@@ -56,7 +61,10 @@ public class MainActivity extends AppCompatActivity {
                 .build();
 
         WeatherAPI weatherAPI = restadapter.create(WeatherAPI.class);
-        weatherAPI.getWeather(ed_cityname.getText().toString(), "182fb8c97915175c2623f2a0fb3629ff", new Callback<Example>()
+
+
+       // weatherAPI.getWeather(ed_cityname.getText().toString(), "182fb8c97915175c2623f2a0fb3629ff", new Callback<Example>()
+        weatherAPI.getWeather("valsad", "182fb8c97915175c2623f2a0fb3629ff", new Callback<Example>()
         {
             @Override
             public void success(Example weatherClass, Response response)
@@ -65,7 +73,8 @@ public class MainActivity extends AppCompatActivity {
 
                 // Toast.makeText(getApplicationContext(),"",Toast.LENGTH_SHORT).show();
                 mAdapter = new ProductsAdapter(weatherClass,R.layout.card_row,getApplicationContext());
-                mRecyclerView.setAdapter(mAdapter);
+               mRecyclerView.setAdapter(mAdapter);
+
 
                 cityname.setText(weatherClass.getCity().getName().toString());
                 countryname.setText(weatherClass.getCity().getCountry().toString());
@@ -74,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
                 cityid.setText(weatherClass.getCity().getId().toString());
                 ed_cityname.setText("");
 
+                hide_keyboard();
 
 
             }
@@ -81,10 +91,20 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void failure(RetrofitError error)
             {
-
+                Log.d("-----------------",error.toString());
+                Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_SHORT).show();
             }
         });
 
+    }
+    public void hide_keyboard()
+    {
+        try {
+            InputMethodManager imm = (InputMethodManager)getSystemService(INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
     }
 
 }
