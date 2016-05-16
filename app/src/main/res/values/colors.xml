@@ -15,6 +15,9 @@
     <color name="button_bg_color">#009688</color>
     <color name="button_text_color">#fff</color>
 
+    <color name="textview_bg_color">#009688</color>
+    <color name="blankspace_color">#E0F2F1</color>
+    <color name="textview_color">#fff</color>
 
 
 </resources>

@@ -1,44 +1,261 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backround"
-    >
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:id="@+id/ed_cityname"
+            android:background="@drawable/curved_button"
+            android:hint="  Enter City Name"
+            android:textColor="@color/backround"
+            android:textColorHint="@color/backround"
+            android:textSize="20sp"
+
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="2"
+            android:background="@drawable/curved_button"
+            android:text="Search"
+            android:onClick="get_data"
+            android:textColor="@color/button_text_color"
+            android:textSize="20sp" />
+
+    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginTop="10dp">
 
-        <EditText
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="45dp"
+            android:layout_height="wrap_content"
+            android:text="Search City"
+            android:textSize="@dimen/regular_text"
+            android:layout_marginLeft="5dp"
+            android:gravity="center_horizontal"
             android:layout_weight="1"
-            android:layout_marginLeft="10dp"
-            android:textSize="20sp"
-            android:hint="  Enter City Name"
-            android:background="@drawable/curved_button"
-            android:textColor="@color/backround"
-            android:textColorHint="@color/backround"
+            android:background="@color/textview_bg_color"
+            android:textColor="@color/textview_color"/>
 
-            />
-<Button
-    android:layout_width="match_parent"
-    android:layout_height="45dp"
-    android:text="Search"
-    android:layout_weight="2"
-    android:textSize="20sp"
-    android:background="@drawable/curved_button"
-    android:textColor="@color/button_text_color"
-    android:layout_marginLeft="10dp"
-    android:layout_marginRight="10dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/regular_text"
+            android:gravity="center_horizontal"
+            android:background="@color/blankspace_color"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:id="@+id/tv_city_name"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="@dimen/regular_text"
+            android:layout_marginRight="5dp"
+            android:gravity="center_horizontal"
+            android:layout_weight="1"
+            android:background="@color/textview_bg_color"
+            android:textColor="@color/textview_color"/>
+
+    </LinearLayout>
+<!-- First Row -->
+
+<!-- Second Row -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="City ID"
+            android:textSize="@dimen/regular_text"
+            android:layout_marginLeft="5dp"
+            android:gravity="center_horizontal"
+            android:layout_weight="1"
+            android:background="@color/textview_bg_color"
+            android:textColor="@color/textview_color"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/regular_text"
+            android:gravity="center_horizontal"
+            android:background="@color/blankspace_color"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:id="@+id/tv_cityid"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="@dimen/regular_text"
+            android:layout_marginRight="5dp"
+            android:gravity="center_horizontal"
+            android:layout_weight="1"
+            android:background="@color/textview_bg_color"
+            android:textColor="@color/textview_color"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Country"
+            android:textSize="@dimen/regular_text"
+            android:layout_marginLeft="5dp"
+            android:gravity="center_horizontal"
+            android:layout_weight="1"
+            android:background="@color/textview_bg_color"
+            android:textColor="@color/textview_color"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/regular_text"
+            android:gravity="center_horizontal"
+            android:background="@color/blankspace_color"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:id="@+id/tv_country_name"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="@dimen/regular_text"
+            android:layout_marginRight="5dp"
+            android:gravity="center_horizontal"
+            android:layout_weight="1"
+            android:background="@color/textview_bg_color"
+            android:textColor="@color/textview_color"/>
+
+    </LinearLayout>
+    <!-- Third Row -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Longitude"
+            android:textSize="@dimen/regular_text"
+            android:layout_marginLeft="5dp"
+            android:gravity="center_horizontal"
+            android:layout_weight="1"
+            android:background="@color/textview_bg_color"
+            android:textColor="@color/textview_color"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/regular_text"
+            android:gravity="center_horizontal"
+            android:background="@color/blankspace_color"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:id="@+id/tv_long"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="@dimen/regular_text"
+            android:layout_marginRight="5dp"
+            android:gravity="center_horizontal"
+            android:layout_weight="1"
+            android:background="@color/textview_bg_color"
+            android:textColor="@color/textview_color"/>
 
     </LinearLayout>
 
+    <!-- Forth Row -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Latitude"
+            android:textSize="@dimen/regular_text"
+            android:layout_marginLeft="5dp"
+            android:gravity="center_horizontal"
+            android:layout_weight="1"
+            android:background="@color/textview_bg_color"
+            android:textColor="@color/textview_color"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/regular_text"
+            android:gravity="center_horizontal"
+            android:background="@color/blankspace_color"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:id="@+id/tv_lat"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="@dimen/regular_text"
+            android:layout_marginRight="5dp"
+            android:gravity="center_horizontal"
+            android:layout_weight="1"
+            android:background="@color/textview_bg_color"
+            android:textColor="@color/textview_color"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <TextView
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="5 Day / 3 Hour Weather"
+        android:textSize="30dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:gravity="center_horizontal"
+        android:background="@drawable/curved_button"
+        android:textColor="@color/textview_color"/>
+    </LinearLayout>
     <android.support.v7.widget.RecyclerView
         android:id="@+id/list_data"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
 
         />
 </LinearLayout>

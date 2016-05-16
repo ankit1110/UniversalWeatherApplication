@@ -6,9 +6,52 @@
     card_view:cardCornerRadius="5dp"
     android:layout_height="match_parent">
 
+<!--
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Date N Time"
+            android:textSize="@dimen/regular_text"
+            android:layout_marginLeft="5dp"
+            android:gravity="center_horizontal"
+            android:layout_weight="1"
+            android:background="@color/textview_bg_color"
+            android:textColor="@color/textview_color"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/regular_text"
+            android:gravity="center_horizontal"
+            android:background="@color/blankspace_color"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:id="@+id/today_date"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="@dimen/regular_text"
+            android:layout_marginRight="5dp"
+            android:gravity="center_horizontal"
+            android:layout_weight="1"
+            android:background="@color/textview_bg_color"
+            android:textColor="@color/textview_color"/>
+
+    </LinearLayout>
+
+
+-->
+
 
 <TextView
-            android:id="@+id/name_date"
+            android:id="@+id/today_date"
             android:gravity="center"
             android:background="?android:selectableItemBackground"
             android:focusable="true"

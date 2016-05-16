@@ -8,6 +8,8 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import ohmsoftwaresinc.com.universalweatherapplication.Adapter.ProductsAdapter;
@@ -22,50 +24,28 @@ public class MainActivity extends AppCompatActivity {
 
     RecyclerView mRecyclerView;
     ProductsAdapter mAdapter;
+    TextView countryname,cityid,longitute,lat,cityname;
+    EditText ed_cityname;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.recycler_main);
 
+        countryname = (TextView)findViewById(R.id.tv_country_name);
+        cityid = (TextView)findViewById(R.id.tv_cityid);
+        longitute = (TextView)findViewById(R.id.tv_long);
+        lat = (TextView)findViewById(R.id.tv_lat);
+        cityname = (TextView)findViewById(R.id.tv_city_name);
+
+        ed_cityname=(EditText)findViewById(R.id.ed_cityname);
         mRecyclerView = (RecyclerView)findViewById(R.id.list_data);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
-        //show_dialogue();
-
-
     }
 
-    public void show_dialogue()
 
-    {
-
-        AlertDialog alertDialog1 = new AlertDialog.Builder(
-                 this).create();
-                // Setting Dialog Title
-        alertDialog1.setTitle("Developer Blog");
-                // Setting Dialog Message
-         alertDialog1.setMessage("Tejal Ankitkumar Rana , Poland");
-
-         // Setting Icon to Dialog
-         alertDialog1.setIcon(R.mipmap.tejal);
-
-        // Setting OK Button
-        alertDialog1.setButton("OK", new DialogInterface.OnClickListener() {
-
-              public void onClick(DialogInterface dialog, int which) {
-             // Write your code here to execute after dialog
-             // closed
-             Toast.makeText(getApplicationContext(),
-                    "You clicked on OK", Toast.LENGTH_SHORT).show();
-         }
-         });
-                // Showing Alert Message
-         alertDialog1.show();
-
-
-    }
 
     public void get_data(View v)
     {
@@ -76,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
                 .build();
 
         WeatherAPI weatherAPI = restadapter.create(WeatherAPI.class);
-        weatherAPI.getWeather("atlanta", "182fb8c97915175c2623f2a0fb3629ff", new Callback<Example>()
+        weatherAPI.getWeather(ed_cityname.getText().toString(), "182fb8c97915175c2623f2a0fb3629ff", new Callback<Example>()
         {
             @Override
             public void success(Example weatherClass, Response response)
@@ -87,6 +67,12 @@ public class MainActivity extends AppCompatActivity {
                 mAdapter = new ProductsAdapter(weatherClass,R.layout.card_row,getApplicationContext());
                 mRecyclerView.setAdapter(mAdapter);
 
+                cityname.setText(weatherClass.getCity().getName().toString());
+                countryname.setText(weatherClass.getCity().getCountry().toString());
+                lat.setText(weatherClass.getCity().getCoord().getLat().toString());
+                longitute.setText(weatherClass.getCity().getCoord().getLon().toString());
+                cityid.setText(weatherClass.getCity().getId().toString());
+                ed_cityname.setText("");
 
 
 

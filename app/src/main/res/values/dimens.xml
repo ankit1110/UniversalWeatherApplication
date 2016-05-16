@@ -7,5 +7,7 @@
 
     <dimen name="title2_text_size">25sp</dimen>
 
+    <dimen name="regular_text">15sp</dimen>
+
 
 </resources>

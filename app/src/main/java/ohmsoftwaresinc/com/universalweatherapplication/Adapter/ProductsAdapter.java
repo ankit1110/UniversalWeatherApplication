@@ -47,7 +47,7 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ViewHo
         public void onBindViewHolder(ViewHolder viewHolder, int j) {
 
             ohmsoftwaresinc.com.universalweatherapplication.Model.List data = product.getList().get(j);
-            viewHolder.countryName.setText(""+data.getDtTxt().toString());
+            viewHolder.todaydate.setText(""+data.getDtTxt().toString());
 
 
 
@@ -60,13 +60,13 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ViewHo
         }
 
         public static class ViewHolder extends RecyclerView.ViewHolder {
-            public TextView countryName;
+            public TextView todaydate;
             public ImageView countryImage;
             public String versionName;
 
             public ViewHolder(View itemView) {
                 super(itemView);
-                countryName = (TextView) itemView.findViewById(R.id.name_date);
+                todaydate = (TextView) itemView.findViewById(R.id.today_date);
 
 
          /*
