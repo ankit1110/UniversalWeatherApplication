@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
             public void failure(RetrofitError error)
             {
                 Log.d("-----------------",error.toString());
-                Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"Enter Valid City Name",Toast.LENGTH_SHORT).show();
             }
         });
 
