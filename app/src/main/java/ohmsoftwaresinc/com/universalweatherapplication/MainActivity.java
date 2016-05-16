@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView mRecyclerView;
     ProductsAdapter mAdapter;
     TextView countryname,cityid,longitute,lat,cityname;
-    EditText ed_cityname;
+    EditText ed_cityname,not_use;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +40,11 @@ public class MainActivity extends AppCompatActivity {
         lat = (TextView)findViewById(R.id.tv_lat);
         cityname = (TextView)findViewById(R.id.tv_city_name);
 
+
         ed_cityname=(EditText)findViewById(R.id.ed_cityname);
+        not_use=(EditText)findViewById(R.id.not_use);
+       // not_use.clearFocus();
+
         mRecyclerView = (RecyclerView)findViewById(R.id.list_data);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
