@@ -2,7 +2,39 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/backround"
     >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:textSize="20sp"
+            android:hint="  Enter City Name"
+            android:background="@drawable/curved_button"
+            android:textColor="@color/backround"
+            android:textColorHint="@color/backround"
+
+            />
+<Button
+    android:layout_width="match_parent"
+    android:layout_height="45dp"
+    android:text="Search"
+    android:layout_weight="2"
+    android:textSize="20sp"
+    android:background="@drawable/curved_button"
+    android:textColor="@color/button_text_color"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"/>
+
+    </LinearLayout>
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/list_data"
         android:layout_width="match_parent"
