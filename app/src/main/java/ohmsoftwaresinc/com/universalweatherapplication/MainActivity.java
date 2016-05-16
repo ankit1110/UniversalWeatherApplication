@@ -63,8 +63,8 @@ public class MainActivity extends AppCompatActivity {
         WeatherAPI weatherAPI = restadapter.create(WeatherAPI.class);
 
 
-       // weatherAPI.getWeather(ed_cityname.getText().toString(), "182fb8c97915175c2623f2a0fb3629ff", new Callback<Example>()
-        weatherAPI.getWeather("valsad", "182fb8c97915175c2623f2a0fb3629ff", new Callback<Example>()
+        weatherAPI.getWeather(ed_cityname.getText().toString(), "182fb8c97915175c2623f2a0fb3629ff", new Callback<Example>()
+     //   weatherAPI.getWeather("valsad", "182fb8c97915175c2623f2a0fb3629ff", new Callback<Example>()
         {
             @Override
             public void success(Example weatherClass, Response response)
