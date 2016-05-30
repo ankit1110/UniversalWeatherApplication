@@ -1,6 +1,7 @@
 package ohmsoftwaresinc.com.universalweatherapplication;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Criteria;
 import android.location.Location;
@@ -8,6 +9,7 @@ import android.location.LocationManager;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 import com.google.android.gms.location.LocationListener;
@@ -58,9 +60,9 @@ public class MapsActivity extends FragmentActivity implements LocationListener {
             initilizeMap();
 
             // Changing map type
-            // googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+             googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
             // googleMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
-            googleMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
+           // googleMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
             // googleMap.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
             // googleMap.setMapType(GoogleMap.MAP_TYPE_NONE);
 
@@ -103,9 +105,9 @@ public class MapsActivity extends FragmentActivity implements LocationListener {
 
             googleMap.addMarker(new MarkerOptions()
                     .position(new LatLng(latitude, longitude))
-                    .title("Your Current Location - "+latitude+" , "+longitude)).showInfoWindow();
+                    .title("Current Location :- "+latitude+" , "+longitude)).showInfoWindow();
 
-           // googleMap.addMarker(marker);
+            // googleMap.addMarker(marker);
 
             CameraPosition cameraPosition = new CameraPosition.Builder()
                     .target(new LatLng(latitude,longitude)).zoom(16).build();
@@ -119,6 +121,14 @@ public class MapsActivity extends FragmentActivity implements LocationListener {
         }
 
 
+
+    }
+
+
+    public void next(View v)
+    {
+        Intent i = new Intent(getApplicationContext(),MainActivity.class);
+        startActivity(i);
     }
 
     @Override
