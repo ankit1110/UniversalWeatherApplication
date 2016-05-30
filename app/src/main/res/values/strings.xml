@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Universal Weather Application</string>
+    <string name="title_activity_maps">Current Location On Earth</string>
 </resources>

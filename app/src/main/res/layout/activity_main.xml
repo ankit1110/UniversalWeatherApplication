@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backround"
+    android:orientation="vertical"
     tools:context="ohmsoftwaresinc.com.universalweatherapplication.MainActivity">
 
  <LinearLayout
@@ -29,6 +30,17 @@
          android:textStyle="bold"
          />
 
+
+     <fragment
+         android:id="@+id/map"
+         android:name="com.google.android.gms.maps.SupportMapFragment"
+         android:layout_marginTop="20dp"
+         android:layout_width="match_parent"
+         android:layout_height="300dp"
+         tools:context="ohmsoftwaresinc.com.universalweatherapplication.MapsActivity" />
+
+<!--
+
      <TextView
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
@@ -39,11 +51,11 @@
          android:textStyle="bold"
          />
 
-
+-->
      <TextView
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
-         android:text="O H M SOFTWARES"
+         android:text="A N K I T K U M A R"
          android:layout_marginTop="20dp"
          android:textSize="@dimen/title_text_size"
          android:textColor="@color/title_text_color"
@@ -52,30 +64,37 @@
      <TextView
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
-         android:text="INCORPORATION"
+         android:text="R A N A"
          android:textSize="@dimen/title_text_size"
          android:textColor="@color/title_text_color"
          android:textStyle="bold"
          />
 
+     <!--  android:text="http://ohmsoftwaresinc.com/" -->
+    <!--
      <TextView
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          android:layout_marginTop="20dp"
-         android:text="http://ohmsoftwaresinc.com/"
          android:textSize="@dimen/title2_text_size"
          android:textColor="@color/title2_text_color"
          android:textStyle="bold"
          />
- <Button
-     android:layout_width="match_parent"
-     android:layout_height="wrap_content"
-     android:layout_marginTop="10dp"
-     android:text="Press Here..To Move Next"
-     android:onClick="next"
-     android:textSize="@dimen/title2_text_size"
-     android:textColor="@color/button_text_color"
-     android:background="@drawable/curved_button"/>
+
+         -->
+     <Button
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_marginTop="20dp"
+         android:layout_marginLeft="20dp"
+         android:layout_marginRight="20dp"
+         android:text="N e x t"
+         android:onClick="next"
+         android:textSize="@dimen/title2_text_size"
+         android:textColor="@color/button_text_color"
+         android:background="@drawable/curved_button"/>
+
  </LinearLayout>
+
 
 </LinearLayout>
