@@ -1,5 +1,6 @@
 package ohmsoftwaresinc.com.universalweatherapplication;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -45,13 +46,23 @@ public class MapsActivity extends FragmentActivity {
             initilizeMap();
 
             // Changing map type
-         //   googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+            //   googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
             // googleMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
             googleMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
             // googleMap.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
             // googleMap.setMapType(GoogleMap.MAP_TYPE_NONE);
 
             // Showing / hiding your current location
+            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                // TODO: Consider calling
+                //    ActivityCompat#requestPermissions
+                // here to request the missing permissions, and then overriding
+                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                //                                          int[] grantResults)
+                // to handle the case where the user grants the permission. See the documentation
+                // for ActivityCompat#requestPermissions for more details.
+                return;
+            }
             googleMap.setMyLocationEnabled(true);
 
             // Enable / Disable zooming controls
@@ -126,11 +137,12 @@ public class MapsActivity extends FragmentActivity {
 
     }
 
-    public void next(View v) {
-        Intent i = new Intent(getApplicationContext(), MainActivity.class);
-        startActivity(i);
+   /* public void next(View v) {
+       // Intent i = new Intent(getApplicationContext(), MainActivity.class);
+       // startActivity(i);
     }
 
+*/
     private void initilizeMap() {
         if (googleMap == null) {
 
