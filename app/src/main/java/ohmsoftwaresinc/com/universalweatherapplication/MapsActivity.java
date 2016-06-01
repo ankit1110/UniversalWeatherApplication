@@ -1,6 +1,9 @@
 package ohmsoftwaresinc.com.universalweatherapplication;
 
 import android.Manifest;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -10,6 +13,7 @@ import android.location.LocationManager;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v4.app.NotificationCompat;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.View;
@@ -32,17 +36,21 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 public class MapsActivity extends FragmentActivity {
 
+    NotificationManager mNotifyMgr;
     private static final int PERMISSION_REQUEST_CODE_LOCATION = 1;
     GPSTracker gps;
     double latitude, longitude;
     private GoogleMap googleMap;
+
+    private static final int NOTIFICATION_EX = 1;
+    private NotificationManager notificationManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        notofication_onStatusbar();
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED)
@@ -66,6 +74,7 @@ public class MapsActivity extends FragmentActivity {
 
 
     }
+
 
     public void load_map() {
         try {
@@ -155,13 +164,46 @@ public class MapsActivity extends FragmentActivity {
 
     }
 
-   /* public void next(View v) {
-       // Intent i = new Intent(getApplicationContext(), MainActivity.class);
-       // startActivity(i);
+    public void next(View v) {
+     //   Intent i = new Intent(getApplicationContext(), MainActivity.class);
+        Intent i = new Intent(getApplicationContext(), Advertiesment.class);
+        startActivity(i);
     }
 
-*/
-   @Override
+    public void notofication_onStatusbar()
+    {
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this)
+                .setSmallIcon(R.mipmap.ic_launcher)
+                .setContentTitle("Title");
+        Intent resultIntent = new Intent(this, MapsActivity.class);
+        PendingIntent resultPendingIntent = PendingIntent.getActivity(
+                this,
+                0,
+                resultIntent,
+                PendingIntent.FLAG_UPDATE_CURRENT);
+        mBuilder.setContentIntent(resultPendingIntent);
+        Notification notification = mBuilder.build();
+        notification.flags |= Notification.FLAG_NO_CLEAR | Notification.FLAG_ONGOING_EVENT;
+
+        mNotifyMgr = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        mNotifyMgr = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        mNotifyMgr.notify(10, notification);
+
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        //mNotifyMgr.cancel(10);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        mNotifyMgr.cancel(10);
+    }
+
+    @Override
    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
        switch (requestCode) {
            case PERMISSION_REQUEST_CODE_LOCATION:
